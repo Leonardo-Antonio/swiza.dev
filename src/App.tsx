@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import "./App.css";
 import { JsonFormatter } from "./tools/JsonFormatter";
 import { DiffTool } from "./tools/DiffTool";
@@ -22,143 +23,78 @@ type Tool =
   | "uuid"
   | "logs";
 
-const tools: {
+const toolsConfig: {
   id: Tool;
-  label: string;
   icon: string;
   key: string;
   slug: string;
-  title: string;
-  description: string;
 }[] = [
-  {
-    id: "logs",
-    label: "Log Pretty",
-    icon: "☰",
-    key: "1",
-    slug: "log-prettifier",
-    title: "Online JSON Log Prettifier | MultiDevTools",
-    description:
-      "Format and prettify production JSON logs. Automatically detects and extracts SQL queries embedded in log values, formatting them for easy reading and execution.",
-  },
-  {
-    id: "formatter",
-    label: "JSON Format",
-    icon: "{ }",
-    key: "2",
-    slug: "json-formatter",
-    title: "Online JSON Formatter & Validator | MultiDevTools",
-    description:
-      "Parse, pretty-print with 2 or 4 space indentation, and minify JSON. Includes syntax highlighting for keys, strings, numbers, and booleans.",
-  },
-  {
-    id: "converter",
-    label: "JSON → Class",
-    icon: "⬡",
-    key: "3",
-    slug: "json-to-class",
-    title: "JSON to TypeScript & Python Class Converter | MultiDevTools",
-    description:
-      "Convert JSON objects into TypeScript interfaces or Python dataclasses. Automatically infers types including nested objects and arrays.",
-  },
-  {
-    id: "sql",
-    label: "SQL Format",
-    icon: "⊞",
-    key: "4",
-    slug: "sql-formatter",
-    title: "Online SQL Formatter & Beautifier | MultiDevTools",
-    description:
-      "Format and beautify raw SQL queries. Adds proper indentation and keyword highlighting for better readability.",
-  },
-  {
-    id: "diff",
-    label: "Diff",
-    icon: "< >",
-    key: "5",
-    slug: "text-diff",
-    title: "Online Text Diff Checker | MultiDevTools",
-    description:
-      "Compare two texts side by side. See additions, deletions, and unchanged lines with a clear color-coded diff output.",
-  },
-  {
-    id: "jwt",
-    label: "JWT Decode",
-    icon: "⚿",
-    key: "6",
-    slug: "jwt-decoder",
-    title: "Online JWT Token Decoder | MultiDevTools",
-    description:
-      "Decode JSON Web Tokens to inspect the header, payload, and signature. Check expiration status at a glance.",
-  },
-  {
-    id: "base64",
-    label: "Base64",
-    icon: "⇌",
-    key: "7",
-    slug: "base64-encoder-decoder",
-    title: "Online Base64 Encoder & Decoder | MultiDevTools",
-    description:
-      "Encode text to Base64 or decode Base64 strings back to plain text. Supports automatic image preview for Base64-encoded images.",
-  },
-  {
-    id: "regex",
-    label: "Regex",
-    icon: ".*",
-    key: "8",
-    slug: "regex-tester",
-    title: "Online Regex Tester & Debugger | MultiDevTools",
-    description:
-      "Write and test regular expressions with real-time highlighting of matches. View capture groups and toggle flags like global, case-insensitive, and multiline.",
-  },
-  {
-    id: "uuid",
-    label: "UUID",
-    icon: "#",
-    key: "9",
-    slug: "uuid-generator",
-    title: "Online UUID v4 Generator | MultiDevTools",
-    description:
-      "Generate random v4 UUIDs in bulk. Click any UUID to copy it to your clipboard instantly.",
-  },
+  { id: "logs", icon: "☰", key: "1", slug: "log-prettifier" },
+  { id: "formatter", icon: "{ }", key: "2", slug: "json-formatter" },
+  { id: "converter", icon: "⬡", key: "3", slug: "json-to-class" },
+  { id: "sql", icon: "⊞", key: "4", slug: "sql-formatter" },
+  { id: "diff", icon: "< >", key: "5", slug: "text-diff" },
+  { id: "jwt", icon: "⚿", key: "6", slug: "jwt-decoder" },
+  { id: "base64", icon: "⇌", key: "7", slug: "base64-encoder-decoder" },
+  { id: "regex", icon: ".*", key: "8", slug: "regex-tester" },
+  { id: "uuid", icon: "#", key: "9", slug: "uuid-generator" },
 ];
 
 const SITE_ORIGIN = "https://www.multidev.tools";
 
 function getToolFromSlug(pathname: string): Tool {
   const slug = pathname.replace(/^\//, "");
-  if (!slug) return tools[0].id;
-  const tool = tools.find((t) => t.slug === slug);
-  return tool?.id ?? tools[0].id;
+  if (!slug) return toolsConfig[0].id;
+  const tool = toolsConfig.find((t) => t.slug === slug);
+  return tool?.id ?? toolsConfig[0].id;
 }
 
-function updateMeta(tool: (typeof tools)[number]) {
-  document.title = tool.title;
+function updateMeta(
+  toolId: string,
+  toolSlug: string,
+  toolTitle: string,
+  toolDescription: string,
+  lang: string
+) {
+  document.title = toolTitle;
+  document.documentElement.lang = lang;
 
   const meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.setAttribute("content", tool.description);
+  if (meta) meta.setAttribute("content", toolDescription);
 
-  const isRoot = window.location.pathname === "/" && tool.id === tools[0].id;
-  const canonicalUrl = isRoot ? `${SITE_ORIGIN}/` : `${SITE_ORIGIN}/${tool.slug}`;
+  const isRoot = window.location.pathname === "/" && toolId === toolsConfig[0].id;
+  const canonicalUrl = isRoot ? `${SITE_ORIGIN}/` : `${SITE_ORIGIN}/${toolSlug}`;
 
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute("href", canonicalUrl);
 
   const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle) ogTitle.setAttribute("content", tool.title);
+  if (ogTitle) ogTitle.setAttribute("content", toolTitle);
 
   const ogDesc = document.querySelector('meta[property="og:description"]');
-  if (ogDesc) ogDesc.setAttribute("content", tool.description);
+  if (ogDesc) ogDesc.setAttribute("content", toolDescription);
 
   const ogUrl = document.querySelector('meta[property="og:url"]');
   if (ogUrl) ogUrl.setAttribute("content", canonicalUrl);
+
+  const ogLocale = document.querySelector('meta[property="og:locale"]');
+  if (ogLocale) ogLocale.setAttribute("content", lang === "es" ? "es_ES" : "en_US");
 }
 
 function App() {
+  const { t, i18n } = useTranslation();
+
   const [activeTool, setActiveTool] = useState<Tool>(() =>
     getToolFromSlug(window.location.pathname),
   );
   const [toast, setToast] = useState<string | null>(null);
+
+  const tools = toolsConfig.map((tool) => ({
+    ...tool,
+    label: t(`tools.${tool.id}.label`),
+    title: t(`tools.${tool.id}.title`),
+    description: t(`tools.${tool.id}.description`),
+  }));
 
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -192,14 +128,14 @@ function App() {
   // Sync title, meta, and canonical with active tool — also fixes URL on initial load
   useEffect(() => {
     const tool = tools.find((t) => t.id === activeTool)!;
-    updateMeta(tool);
+    updateMeta(tool.id, tool.slug, tool.title, tool.description, i18n.language);
 
     const isRootAndDefault =
-      window.location.pathname === "/" && activeTool === tools[0].id;
+      window.location.pathname === "/" && activeTool === toolsConfig[0].id;
     if (!isRootAndDefault && window.location.pathname !== `/${tool.slug}`) {
       window.history.replaceState(null, "", `/${tool.slug}`);
     }
-  }, [activeTool]);
+  }, [activeTool, tools, i18n.language]);
 
   // Handle browser back / forward
   useEffect(() => {
@@ -237,7 +173,7 @@ function App() {
           <div className="logo">
             <div className="logo-icon">
               <p
-                style={{ fontSize: "large" }}
+                style={{ fontSize: "large", cursor: "pointer" }}
                 onClick={() => window.history.pushState(null, "", "/")}
               >
                 ⚒️
@@ -245,9 +181,17 @@ function App() {
             </div>
           </div>
 
-          <div
-            className={`tool-rack-container ${canScrollLeft ? "can-scroll-left" : ""} ${canScrollRight ? "can-scroll-right" : ""}`}
-          >
+          <div className="tool-rack-container">
+            {canScrollLeft && (
+              <button
+                className="scroll-btn scroll-btn-left"
+                onClick={() => rackRef.current?.scrollBy({ left: -200, behavior: "smooth" })}
+                aria-label="Scroll left"
+              >
+                ‹
+              </button>
+            )}
+
             <nav className="tool-rack" ref={rackRef} onScroll={checkScroll}>
               {tools.map((tool) => (
                 <button
@@ -261,20 +205,37 @@ function App() {
                 </button>
               ))}
             </nav>
+
+            {canScrollRight && (
+              <button
+                className="scroll-btn scroll-btn-right"
+                onClick={() => rackRef.current?.scrollBy({ left: 200, behavior: "smooth" })}
+                aria-label="Scroll right"
+              >
+                ›
+              </button>
+            )}
           </div>
+
+          <button 
+            className="btn btn-ghost" 
+            onClick={() => {
+              const nextLang = i18n.language === "en" ? "es" : "en";
+              i18n.changeLanguage(nextLang);
+              localStorage.setItem("app_lang", nextLang);
+            }} 
+            style={{ marginLeft: "10px", minWidth: "40px" }} 
+            title="Toggle Language"
+          >
+            {i18n.language === "en" ? "ES" : "EN"}
+          </button>
         </div>
       </header>
 
       <section className="hero">
         <div className="hero-inner">
-          <h1>Free Online Developer Tools</h1>
-          <p>
-            MultiDevTools is a free, open collection of browser-based tools for
-            developers. Format JSON, compare text diffs, decode JWTs, encode
-            Base64, test regex patterns, format SQL queries, generate UUIDs, and
-            prettify production logs — all without sending data to any server.
-            Your data stays in your browser, always.
-          </p>
+          <h1>{t("header.title")}</h1>
+          <p>{t("header.description")}</p>
         </div>
       </section>
 
@@ -306,16 +267,11 @@ function App() {
       <footer className="footer">
         <div className="footer-inner">
           <div className="footer-about">
-            <h3>About MultiDevTools</h3>
-            <p>
-              MultiDevTools provides essential developer utilities that run
-              entirely in your browser. No sign-up required, no data collection,
-              no server-side processing. Built for developers who value speed,
-              privacy, and simplicity in their daily workflow.
-            </p>
+            <h3>{t("footer.about_title")}</h3>
+            <p>{t("footer.about_text")}</p>
           </div>
           <div className="footer-tools">
-            <h3>Tools</h3>
+            <h3>{t("footer.tools_title")}</h3>
             <ul>
               {tools.map((tool) => (
                 <li key={tool.id}>
@@ -327,10 +283,7 @@ function App() {
             </ul>
           </div>
           <div className="footer-bottom">
-            <p>
-              &copy; {new Date().getFullYear()} MultiDevTools. All tools run
-              client-side — your data never leaves your browser.
-            </p>
+            <p>{t("footer.copyright").replace("{{year}}", new Date().getFullYear().toString())}</p>
           </div>
         </div>
       </footer>

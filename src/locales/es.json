@@ -1,0 +1,59 @@
+{
+    "header": {
+        "title": "Herramientas Gratuitas para Desarrolladores En Línea",
+        "description": "MultiDevTools es una colección libre y gratuita de herramientas para desarrolladores directamente en el navegador. Formatea JSON, compara texto, decodifica JWT, codifica Base64, prueba patrones Regex, formatea consultas SQL, genera UUIDs y formatea logs de producción, todo sin enviar datos a ningún servidor. Tus datos permanecen en tu navegador, siempre."
+    },
+    "footer": {
+        "about_title": "Acerca de MultiDevTools",
+        "about_text": "MultiDevTools provee las herramientas esenciales para desarrolladores que funcionan directamente en el navegador. Sin necesidad de registrarse, sin recolección de datos y sin procesamiento en el servidor. Creado por desarrolladores que valoran la velocidad, privacidad y simplicidad en su trabajo del día a día.",
+        "tools_title": "Herramientas",
+        "copyright": "© {{year}} MultiDevTools. Todas las herramientas se ejecutan del lado del cliente, tus datos nunca salen de tu navegador."
+    },
+    "tools": {
+        "logs": {
+            "label": "Log Pretty",
+            "title": "Formateador JSON de Logs En Línea | MultiDevTools",
+            "description": "Formatea logs de producción en JSON para fácil lectura. Detecta y extrae consultas SQL contenidas en valores del log, formateándolas para leer y ejecutar fácilmente."
+        },
+        "formatter": {
+            "label": "JSON Format",
+            "title": "Validador y Formateador JSON En Línea | MultiDevTools",
+            "description": "Analiza, formatea e indenta JSON con visualización de sintaxis iluminada para claves, strings, numéricos y booleanos."
+        },
+        "converter": {
+            "label": "JSON → Class",
+            "title": "Convertidor de JSON a Tipos de Clases TypeScript y Python | MultiDevTools",
+            "description": "Convierte objetos JSON a interfaces de TypeScript o dataclases de Python. Deduce automáticamente los tipos, así como listas y arreglos de objetos."
+        },
+        "sql": {
+            "label": "SQL Format",
+            "title": "Formateador y Embellecedor SQL En Línea | MultiDevTools",
+            "description": "Formatea y embellece consultas SQL en formato crudo. Agrega la indentación correspondiente y las palabras clave iluminadas."
+        },
+        "diff": {
+            "label": "Diff",
+            "title": "Buscador de Diferencias En Línea | MultiDevTools",
+            "description": "Compara dos fragmentos de texto lado a lado en un solo formato. Mira las adiciones, eliminaciones o los fragmentos de texto sin tocar en un diferencial por color."
+        },
+        "jwt": {
+            "label": "JWT Decode",
+            "title": "Decodificador de Tokens JWT En Línea | MultiDevTools",
+            "description": "Decodifica tus JSON Web Tokens para observar y analizar el header, payload, y signature. Inspecciona cuando tu estado ha sido expirado."
+        },
+        "base64": {
+            "label": "Base64",
+            "title": "Codificador y Decodificador Base64 En Línea | MultiDevTools",
+            "description": "Codifica texto en formato base64 o descífralo fácilmente para recuperar su texto original. Incluye visualización automática adaptativa para renderizar vistas previas."
+        },
+        "regex": {
+            "label": "Regex",
+            "title": "Probador Regex En Línea | MultiDevTools",
+            "description": "Crea y analiza expresiones regulares resaltándolas al ritmo de edición en progreso. Mira tus capturas o variables activadas en global, key-insensitive y multilinias."
+        },
+        "uuid": {
+            "label": "UUID",
+            "title": "Generador MultiUUID Versión 4 En Línea | MultiDevTools",
+            "description": "Genera de manera masiva la base de códigos y generadores UUID Versión 4 aleatorios. Haz clic y obtenlo copiado directo en tu portapapeles."
+        }
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "header": {
+        "title": "Free Online Developer Tools",
+        "description": "MultiDevTools is a free, open collection of browser-based tools for developers. Format JSON, compare text diffs, decode JWTs, encode Base64, test regex patterns, format SQL queries, generate UUIDs, and prettify production logs — all without sending data to any server. Your data stays in your browser, always."
+    },
+    "footer": {
+        "about_title": "About MultiDevTools",
+        "about_text": "MultiDevTools provides essential developer utilities that run entirely in your browser. No sign-up required, no data collection, no server-side processing. Built for developers who value speed, privacy, and simplicity in their daily workflow.",
+        "tools_title": "Tools",
+        "copyright": "© {{year}} MultiDevTools. All tools run client-side — your data never leaves your browser."
+    },
+    "tools": {
+        "logs": {
+            "label": "Log Pretty",
+            "title": "Online JSON Log Prettifier | MultiDevTools",
+            "description": "Format and prettify production JSON logs. Automatically detects and extracts SQL queries embedded in log values, formatting them for easy reading and execution."
+        },
+        "formatter": {
+            "label": "JSON Format",
+            "title": "Online JSON Formatter & Validator | MultiDevTools",
+            "description": "Parse, pretty-print with 2 or 4 space indentation, and minify JSON. Includes syntax highlighting for keys, strings, numbers, and booleans."
+        },
+        "converter": {
+            "label": "JSON → Class",
+            "title": "JSON to TypeScript & Python Class Converter | MultiDevTools",
+            "description": "Convert JSON objects into TypeScript interfaces or Python dataclasses. Automatically infers types including nested objects and arrays."
+        },
+        "sql": {
+            "label": "SQL Format",
+            "title": "Online SQL Formatter & Beautifier | MultiDevTools",
+            "description": "Format and beautify raw SQL queries. Adds proper indentation and keyword highlighting for better readability."
+        },
+        "diff": {
+            "label": "Diff",
+            "title": "Online Text Diff Checker | MultiDevTools",
+            "description": "Compare two texts side by side. See additions, deletions, and unchanged lines with a clear color-coded diff output."
+        },
+        "jwt": {
+            "label": "JWT Decode",
+            "title": "Online JWT Token Decoder | MultiDevTools",
+            "description": "Decode JSON Web Tokens to inspect the header, payload, and signature. Check expiration status at a glance."
+        },
+        "base64": {
+            "label": "Base64",
+            "title": "Online Base64 Encoder & Decoder | MultiDevTools",
+            "description": "Encode text to Base64 or decode Base64 strings back to plain text. Supports automatic image preview for Base64-encoded images."
+        },
+        "regex": {
+            "label": "Regex",
+            "title": "Online Regex Tester & Debugger | MultiDevTools",
+            "description": "Write and test regular expressions with real-time highlighting of matches. View capture groups and toggle flags like global, case-insensitive, and multiline."
+        },
+        "uuid": {
+            "label": "UUID",
+            "title": "Online UUID v4 Generator | MultiDevTools",
+            "description": "Generate random v4 UUIDs in bulk. Click any UUID to copy it to your clipboard instantly."
+        }
+    }
+}
