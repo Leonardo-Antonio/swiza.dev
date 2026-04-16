@@ -12,13 +12,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-DevForge is a client-side-only developer toolkit built with React 19, TypeScript, and Vite 8. There is no backend, no routing library, and no state management library.
+MultiDevTools is a client-side-only developer toolkit built with React 19, TypeScript, and Vite 8. There is no backend, no routing library, and no state management library.
 
 ### Tool system
 
 `App.tsx` manages which tool is active via a `Tool` union type and local state. Tools are switched by clicking tabs or pressing keyboard shortcuts (1, 2, 3 — ignored when focus is in a textarea). Each tool is a self-contained component in `src/tools/` that receives a single `onCopy` prop for triggering a toast notification.
 
 Current tools:
+
 - **JsonFormatter** — parse, pretty-print (2/4 space indent), and minify JSON; custom syntax highlighter renders via `dangerouslySetInnerHTML`
 - **DiffTool** — line-based text diff using the `diff` npm package (`diffLines`)
 - **JsonToClass** — convert JSON to TypeScript interfaces or Python dataclasses; all type inference logic is inline in the component file
@@ -32,6 +33,7 @@ Current tools:
 ### Styling
 
 No CSS modules, Tailwind, or preprocessors. Two CSS files handle everything:
+
 - `index.css` — global reset, CSS custom properties (design tokens for colors, spacing, typography, radii, transitions), scrollbar styling. Dark theme only. Fonts: Space Grotesk (UI), JetBrains Mono (code), loaded from Google Fonts.
 - `App.css` — all component styles using the design tokens. Shared classes like `.editor-area`, `.editor-header`, `.editor-body`, `.btn`, `.btn-ghost`, `.btn-primary` are reused across tools. Syntax highlight tokens (`.token-*`, `.code-*`) are defined here.
 
