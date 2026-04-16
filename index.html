@@ -4,18 +4,64 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevForge — Free Online Developer Tools: JSON Formatter, Diff, JWT Decoder & More</title>
-    <meta name="description" content="DevForge is a free collection of online developer tools. Format JSON, compare text diffs, decode JWTs, encode/decode Base64, test regex patterns, format SQL, and generate UUIDs — all in your browser, no data sent to servers." />
-    <meta name="keywords" content="JSON formatter, text diff, JWT decoder, Base64 encoder, regex tester, SQL formatter, UUID generator, developer tools, online tools" />
-    <link rel="canonical" href="https://devforge.tools" />
+    <title>
+      DevForge — Free Online Developer Tools: JSON Formatter, Diff, JWT Decoder
+      & More
+    </title>
+    <meta
+      name="description"
+      content="DevForge is a free collection of online developer tools. Format JSON, compare text diffs, decode JWTs, encode/decode Base64, test regex patterns, format SQL, and generate UUIDs — all in your browser, no data sent to servers."
+    />
+    <meta
+      name="keywords"
+      content="JSON formatter, text diff, JWT decoder, Base64 encoder, regex tester, SQL formatter, UUID generator, log prettifier, developer tools, online tools"
+    />
+    <link rel="canonical" href="https://multidev.tools" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="DevForge — Free Online Developer Tools" />
-    <meta property="og:description" content="Format JSON, compare diffs, decode JWTs, encode Base64, test regex, format SQL, and generate UUIDs — free, fast, and private. Everything runs in your browser." />
+    <meta
+      property="og:title"
+      content="DevForge — Free Online Developer Tools"
+    />
+    <meta
+      property="og:description"
+      content="Format JSON, compare diffs, decode JWTs, encode Base64, test regex, format SQL, and generate UUIDs — free, fast, and private. Everything runs in your browser."
+    />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://multidev.tools" />
     <meta property="og:locale" content="es" />
 
-    <meta name="google-adsense-account" content="ca-pub-3390991467988558">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DevForge",
+        "url": "https://multidev.tools",
+        "description": "Free collection of online developer tools. Format JSON, compare diffs, decode JWTs, encode Base64, test regex, format SQL, generate UUIDs, and prettify production logs — all in your browser.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "JSON Formatter & Validator",
+          "Text Diff Checker",
+          "JSON to TypeScript & Python Class Converter",
+          "JWT Token Decoder",
+          "Base64 Encoder & Decoder",
+          "Regex Tester & Debugger",
+          "SQL Formatter & Beautifier",
+          "UUID v4 Generator",
+          "JSON Log Prettifier with SQL Extraction"
+        ]
+      }
+    </script>
+
+    <meta name="google-adsense-account" content="ca-pub-3390991467988558" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3390991467988558"
@@ -25,19 +71,59 @@
   <body>
     <div id="root"></div>
     <noscript>
-      <div style="max-width:800px;margin:40px auto;padding:0 24px;font-family:system-ui,sans-serif;color:#e4e4e9;">
+      <div
+        style="
+          max-width: 800px;
+          margin: 40px auto;
+          padding: 0 24px;
+          font-family: system-ui, sans-serif;
+          color: #e4e4e9;
+        "
+      >
         <h1>DevForge — Free Online Developer Tools</h1>
-        <p>DevForge is a free, privacy-first collection of browser-based developer tools. No data is ever sent to external servers — everything runs locally in your browser.</p>
+        <p>
+          DevForge is a free, privacy-first collection of browser-based
+          developer tools. No data is ever sent to external servers — everything
+          runs locally in your browser.
+        </p>
         <h2>Available Tools</h2>
         <ul>
-          <li><strong>JSON Formatter</strong> — Parse, pretty-print, and minify JSON with syntax highlighting.</li>
-          <li><strong>Text Diff</strong> — Compare two texts side by side and see additions, deletions, and unchanged lines.</li>
-          <li><strong>JSON to Class</strong> — Convert JSON objects into TypeScript interfaces or Python dataclasses automatically.</li>
-          <li><strong>JWT Decoder</strong> — Decode JSON Web Tokens to inspect headers, payloads, and expiration status.</li>
-          <li><strong>Base64 Encoder/Decoder</strong> — Encode and decode Base64 strings, with image preview support.</li>
-          <li><strong>Regex Tester</strong> — Write and test regular expressions with real-time match highlighting and capture groups.</li>
-          <li><strong>SQL Formatter</strong> — Format and beautify raw SQL queries for better readability.</li>
-          <li><strong>UUID Generator</strong> — Generate random UUIDs (v4) in bulk with one click.</li>
+          <li>
+            <strong>JSON Formatter</strong> — Parse, pretty-print, and minify
+            JSON with syntax highlighting.
+          </li>
+          <li>
+            <strong>Text Diff</strong> — Compare two texts side by side and see
+            additions, deletions, and unchanged lines.
+          </li>
+          <li>
+            <strong>JSON to Class</strong> — Convert JSON objects into
+            TypeScript interfaces or Python dataclasses automatically.
+          </li>
+          <li>
+            <strong>JWT Decoder</strong> — Decode JSON Web Tokens to inspect
+            headers, payloads, and expiration status.
+          </li>
+          <li>
+            <strong>Base64 Encoder/Decoder</strong> — Encode and decode Base64
+            strings, with image preview support.
+          </li>
+          <li>
+            <strong>Regex Tester</strong> — Write and test regular expressions
+            with real-time match highlighting and capture groups.
+          </li>
+          <li>
+            <strong>SQL Formatter</strong> — Format and beautify raw SQL queries
+            for better readability.
+          </li>
+          <li>
+            <strong>UUID Generator</strong> — Generate random UUIDs (v4) in bulk
+            with one click.
+          </li>
+          <li>
+            <strong>Log Prettifier</strong> — Format production JSON logs and
+            extract embedded SQL queries for easy reading.
+          </li>
         </ul>
         <p>Please enable JavaScript to use these tools.</p>
       </div>

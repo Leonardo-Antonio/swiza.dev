@@ -982,6 +982,92 @@ mark.regex-match {
   opacity: 1;
 }
 
+/* ── Log Prettifier ── */
+.log-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+  height: calc(100dvh - 56px - var(--sp-6) * 2);
+  min-height: 500px;
+}
+
+.log-grid--with-sql {
+  height: auto;
+}
+
+.log-grid--with-sql .editor-body textarea,
+.log-grid--with-sql .editor-body pre {
+  min-height: 300px;
+  max-height: 50vh;
+}
+
+.log-sql-badge {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--electric);
+  background: var(--electric-dim);
+  padding: 1px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(91, 155, 245, 0.2);
+}
+
+.log-sql-section {
+  margin-top: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.log-sql-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.log-sql-section-title {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink-secondary);
+  letter-spacing: -0.01em;
+}
+
+.log-sql-card {
+  background: var(--surface-50);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.log-sql-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-2) var(--sp-4);
+  border-bottom: 1px solid var(--edge);
+}
+
+.log-sql-path {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--amber);
+  font-weight: 500;
+}
+
+.log-sql-code {
+  padding: var(--sp-4);
+  margin: 0;
+  overflow: auto;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--ink-primary);
+  white-space: pre;
+  max-height: 300px;
+}
+
 /* ── Error banner ── */
 .error-banner {
   padding: var(--sp-3) var(--sp-4);
@@ -1166,7 +1252,8 @@ mark.regex-match {
   .jwt-grid,
   .base64-grid,
   .regex-grid,
-  .sql-grid {
+  .sql-grid,
+  .log-grid {
     grid-template-columns: 1fr;
     gap: var(--sp-3);
   }
@@ -1176,7 +1263,8 @@ mark.regex-match {
   .jwt-grid,
   .base64-grid,
   .regex-grid,
-  .sql-grid {
+  .sql-grid,
+  .log-grid {
     height: auto;
   }
 
