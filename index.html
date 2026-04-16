@@ -8,26 +8,45 @@
     <title>MultiDevTools — Free Online Developer Tools</title>
     <meta
       name="description"
-      content="Collection of free online developer tools. Format JSON, compare Diff, decode JWT, encode Base64, generate UUIDs and more. No data sent to servers."
+      content="The ultimate free suite of browser-based developer tools. Format JSON, convert JSON to Typescript/Python, compare text Diff, decode JWTs, test Regex, beautify logs and more. 100% private, no data sent to servers."
     />
     <meta
       name="keywords"
-      content="JSON formatter, text diff, JWT decoder, Base64 encoder, regex tester, SQL formatter, UUID generator, log prettifier, developer tools, online tools"
+      content="developer tools, online developer tools, JSON formatter, JSON to class, JSON to typescript, JSON to python, text diff checker, JWT decoder, Base64 encoder, regex tester, SQL formatter, UUID generator, log prettifier, log viewer"
+    />
+    <meta name="author" content="MultiDevTools" />
+    <!-- Tell search engines this page is translation-ready and should be fully indexed -->
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
     <link rel="canonical" href="https://www.multidev.tools/" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph for Facebook/LinkedIn -->
     <meta
       property="og:title"
       content="MultiDevTools — Free Online Developer Tools"
     />
     <meta
       property="og:description"
-      content="Format JSON, compare diffs, decode JWTs, encode Base64, test regex, format SQL, and generate UUIDs — free, fast, and private."
+      content="A powerful suite of 9+ free developer utilities running entirely in your browser. Complete privacy, blazing fast, no server calls."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.multidev.tools/" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:site_name" content="MultiDevTools" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="MultiDevTools — Free Online Developer Tools"
+    />
+    <meta
+      name="twitter:description"
+      content="Format JSON, convert to Classes, decode JWTs, test Regex, and more. 100% free and private developer utilities."
+    />
 
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
@@ -37,9 +56,11 @@
         "@type": "WebApplication",
         "name": "MultiDevTools",
         "url": "https://www.multidev.tools/",
-        "description": "Free collection of online developer tools. Format JSON, compare diffs, decode JWTs, encode Base64, test regex, format SQL, generate UUIDs, and prettify production logs — all in your browser.",
+        "description": "Free, private, browser-based collection of developer tools. Perform JSON formatting, code generation, jwt decoding, regex testing, and SQL/Log prettifying without data tracking.",
         "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Any",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript and HTML5",
+        "inLanguage": ["en", "es"],
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -47,14 +68,14 @@
         },
         "featureList": [
           "JSON Formatter & Validator",
-          "Text Diff Checker",
           "JSON to TypeScript & Python Class Converter",
+          "Text Diff Checker",
           "JWT Token Decoder",
           "Base64 Encoder & Decoder",
           "Regex Tester & Debugger",
           "SQL Formatter & Beautifier",
           "UUID v4 Generator",
-          "JSON Log Prettifier with SQL Extraction"
+          "Log Prettifier with Auto SQL Extraction"
         ]
       }
     </script>
@@ -91,54 +112,72 @@
   <body>
     <div id="root">
       <div class="seo-crawler-content">
-        <h1>MultiDevTools — Free Online Developer Tools</h1>
+        <h1>MultiDevTools — The Ultimate Free Online Developer Tools</h1>
         <p>
-          Welcome to MultiDevTools, your go-to collection of free online
-          developer tools. We provide essential utilities carefully designed for
-          developers. Everything runs locally in your browser, guaranteeing your
-          privacy as absolutely no data is sent to external servers.
+          Welcome to MultiDevTools, your central hub for reliable, free online
+          developer utilities. We have meticulously crafted these tools to
+          skyrocket your daily programming productivity. Every utility processes
+          data locally in your browser to guarantee maximum privacy — no API
+          calls, no third parties, no server data collection.
         </p>
 
-        <h2>Explore Our Developer Tools</h2>
-        <p>Boost your productivity with our suite of utilities:</p>
+        <h2>Comprehensive Suite of Developer Utilities</h2>
+        <p>
+          Explore our complete catalog of coding, debugging, and formatting
+          tools:
+        </p>
         <ul>
           <li>
-            <a href="/json-formatter">JSON Formatter</a>: Format, validate, and
-            minify your JSON data.
+            <a href="/json-formatter">JSON Formatter & Validator</a>: Minify,
+            format, validate, and navigate complex JSON data structures
+            visually.
           </li>
           <li>
-            <a href="/text-diff">Text Diff</a>: Compare two text sources side by
-            side.
+            <a href="/json-to-class">JSON to Class Converter</a>: Instantly
+            transform raw JSON payloads into strongly-typed TypeScript
+            interfaces or Python classes.
           </li>
           <li>
-            <a href="/jwt-decoder">JWT Decoder</a>: Safely decode JSON Web
-            Tokens.
+            <a href="/text-diff">Text Diff Checker</a>: Compare two text blocks
+            or code files side-by-side to highlight added and removed lines
+            effortlessly.
+          </li>
+          <li>
+            <a href="/jwt-decoder">JWT Token Decoder</a>: Decode JSON Web Tokens
+            (JWT) locally to inspect header, payload, and signature data safely.
           </li>
           <li>
             <a href="/base64-encoder-decoder">Base64 Encoder / Decoder</a>:
-            Easily translate text to Base64 formats.
+            Translate plain text or files into Base64 format and vice-versa.
           </li>
           <li>
-            <a href="/regex-tester">Regex Tester</a>: Test your regular
-            expressions in real time.
+            <a href="/regex-tester">Regex Tester & Debugger</a>: Validate
+            complex regular expressions against target strings with real-time
+            match highlighting.
           </li>
           <li>
-            <a href="/sql-formatter">SQL Formatter</a>: Beautify raw SQL
-            queries.
+            <a href="/sql-formatter">SQL Formatter</a>: Beautify raw, minified
+            SQL queries with support for multiple dialects including standard
+            SQL, MySQL, and PostgreSQL.
           </li>
           <li>
-            <a href="/uuid-generator">UUID Generator</a>: Quickly generate v4
-            UUIDs bulk.
+            <a href="/uuid-generator">UUID Generator</a>: Rapidly generate
+            standard consecutive or randomized UUIDs (version 4) in bulk
+            quantities.
           </li>
           <li>
-            <a href="/log-prettifier">Log Prettifier</a>: Clean up and read your
-            production logs easily.
+            <a href="/log-prettifier">JSON Log Prettifier</a>: Transform
+            illegible single-line server production logs into readable formats.
+            Features automatic detection and extraction of embedded SQL queries
+            within logs!
           </li>
         </ul>
         <p>
-          If you have any questions or simply want a reliable toolkit for
-          everyday development tasks, our utilities are ready to assist you
-          securely.
+          MultiDevTools is entirely responsive, multilingual (English and
+          Spanish), and engineered to keep your workflow uninterrupted. Whether
+          you are debugging microservices, reading backend logs, or preparing
+          frontend types, our secure and blazing fast browser toolkit has
+          everything you need.
         </p>
       </div>
     </div>
